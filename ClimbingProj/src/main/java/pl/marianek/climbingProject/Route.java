@@ -2,33 +2,28 @@ package pl.marianek.climbingProject;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.stereotype.Component;
+
+import javax.persistence.*;
 
 @Getter @Setter
-@Component
+@Entity
 public class Route {
-    public enum Rate {
-        IV("IV"),
-        IV_P("IV+"),
-        V_M("V-"),
-        V("V"),
-        V_P("V+"),
-        VI_M("VI-"),
-        VI("VI"),
-        VI_P("VI+"),
-        VI_1("VI.1"),
-        VI_1_P("VI.1+");
+    @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
 
-        public final String label;
-
-        private Rate(String label) {
-            this.label = label;
-        }
-    }
     private String name;
+
     private String region;
+
     private String wall;
+
+    @Enumerated(EnumType.STRING)
     private Rate rate;
+
     private String firstAscent;
+
     private int year;
+
+
 }
