@@ -2,8 +2,10 @@ package pl.marianek.climbingProject;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+
 
 @Getter @Setter
 @Entity
@@ -11,24 +13,27 @@ import javax.persistence.*;
 public class Route {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    private Long routeId;
 
     @Id
     @Column(length=50, nullable=false, unique=true)
     private String routeName;
 
     @Column(name="ROUTE_REGION", length=50, nullable=false)
+    @Length(min = 2, max = 50)
     private String region;
 
-    @Column(name="WALL_NAME", length=50, nullable=false)
-    private String wall;
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Wall.class)
+    @JoinColumn(name="wall_id", nullable = false)
+    private Wall wall;
 
     @Enumerated(EnumType.STRING)
     @Column(name="RATE")
     private Rate rate;
 
-    @Column(name="FIRST_ASCENT_NAME", columnDefinition = "varchar(50) default 'Maria Boniecka'")
-    private String firstAscent;
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Climber.class)
+    @JoinColumn(name = "climber_id", nullable = false)
+    private Climber firstAscent;
 
     @Column(name="CREATION_YEAR")
     private int year;
