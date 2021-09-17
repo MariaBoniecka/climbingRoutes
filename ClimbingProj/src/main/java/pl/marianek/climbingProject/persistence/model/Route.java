@@ -1,8 +1,10 @@
-package pl.marianek.climbingProject;
+package pl.marianek.climbingProject.persistence.model;
 
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
+import pl.marianek.climbingProject.Rate;
+import pl.marianek.climbingProject.RouteId;
 
 import javax.persistence.*;
 

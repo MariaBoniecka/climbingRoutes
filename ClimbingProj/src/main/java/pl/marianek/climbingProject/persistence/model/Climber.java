@@ -1,4 +1,4 @@
-package pl.marianek.climbingProject;
+package pl.marianek.climbingProject.persistence.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -31,5 +31,12 @@ public class Climber {
     @Column(name="CLIMBER_COUNTRY", length=2, nullable=false)
     @Length(min = 2, max = 2)
     private String climberCountryCode;
+
+    @Override
+    public String toString() {
+        return String.format(
+                "Climber:%d, %s, %s, %s, %s",
+                climberId, climberFirstName, climberLastName, climberCountryCode, dateOfBirth);
+    }
 
 }

@@ -1,7 +1,8 @@
-package pl.marianek.climbingProject;
+package pl.marianek.climbingProject.persistence.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import pl.marianek.climbingProject.Style;
 
 import javax.persistence.*;
 import java.util.Date;
