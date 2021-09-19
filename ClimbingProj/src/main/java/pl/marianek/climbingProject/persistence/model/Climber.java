@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Getter @Setter
 @Entity
@@ -26,7 +26,7 @@ public class Climber {
     private String climberLastName;
 
     @Column(name="CLIMBER_BIRTH", nullable=false)
-    private Date dateOfBirth;
+    private LocalDateTime dateOfBirth;
 
     @Column(name="CLIMBER_COUNTRY", length=2, nullable=false)
     @Length(min = 2, max = 2)

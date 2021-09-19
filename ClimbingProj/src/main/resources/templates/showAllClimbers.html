@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Show all climbers</title>
+</head>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+<script>
+	$(document).ready(function() {
+		$.ajax({
+			url : "/spring-thymeleaf/js",
+		});
+	});
+</script>
+<body>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Date of birth</th>
+        <th>Country</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="climber : ${climbers}">
+        <td th:text="${climber.climberId}" />
+        <td th:text="${climber.climberFirstName}" />
+        <td th:text="${climber.climberLastName}" />
+        <td th:text="${#temporals.format(climber.dateOfBirth, 'dd-MM-yyyy')}" />
+        <td th:text="${climber.climberCountryCode}" />
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
