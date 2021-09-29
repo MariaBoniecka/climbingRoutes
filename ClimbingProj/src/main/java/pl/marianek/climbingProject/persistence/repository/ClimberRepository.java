@@ -1,4 +1,4 @@
-package pl.marianek.climbingProject.persistence.service;
+package pl.marianek.climbingProject.persistence.repository;
 import org.springframework.data.repository.CrudRepository;
 import pl.marianek.climbingProject.persistence.model.Climber;
 

@@ -8,6 +8,8 @@ public class RouteId implements Serializable {
 
     // default constructor
 
+    public RouteId() {
+    }
     public RouteId(String routeName) {
         this.routeName = routeName;
     }

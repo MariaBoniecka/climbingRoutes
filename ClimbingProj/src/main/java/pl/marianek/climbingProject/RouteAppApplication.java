@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import pl.marianek.climbingProject.persistence.model.Climber;
-import pl.marianek.climbingProject.persistence.service.ClimberRepository;
+import pl.marianek.climbingProject.persistence.repository.ClimberRepository;
 
 import java.sql.SQLException;
 
