@@ -1,7 +1,9 @@
 package pl.marianek.climbingProject.persistence.model;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.Entity;
@@ -10,13 +12,15 @@ import javax.persistence.Id;
 import javax.persistence.GenerationType;
 import javax.persistence.Column;
 
-import java.time.LocalDateTime;
+import java.time.*;
 
 @Getter @Setter
 @Entity
+@Data
 public class Climber {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.AUTO, generator = "dupa")
+    @GenericGenerator(name = "dupa", strategy = "increment")
     private Long climberId;
 
     @Column(length=50, nullable=false)

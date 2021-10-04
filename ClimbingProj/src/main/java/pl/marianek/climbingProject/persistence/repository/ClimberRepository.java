@@ -7,4 +7,6 @@ import java.util.List;
 public interface ClimberRepository extends CrudRepository<Climber, Long> {
 
     List<Climber> findAll();
+
+
 }

@@ -15,4 +15,9 @@ public class ClimberService {
     public Collection<Climber> getClimbers() {
         return climberRepo.findAll();
     }
+
+    public void saveClimber(Climber climber) {
+        climberRepo.save(climber);
+    }
+
 }
