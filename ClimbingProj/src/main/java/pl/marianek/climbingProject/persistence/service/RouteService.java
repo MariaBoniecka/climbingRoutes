@@ -15,4 +15,8 @@ public class RouteService {
     public Collection<Route> getRoutes() {
         return routeRepo.findAll();
     }
+
+    public void saveRoute(Route route) {
+        routeRepo.save(route);
+    }
 }

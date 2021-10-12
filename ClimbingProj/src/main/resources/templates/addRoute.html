@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add New Route</title>
 </head>
 <body>
-
+<h1>Please write down the route details</h1>
+<form action="#" th:action="@{/newRoute}" th:object="${newRouteForm}" method="post">
+    <p>Route name: <input type="text" th:field="*{routeName}"/></p>
+    <label for="wall">Wall:</label>
+    <select id="wall" th:field="*{wallName}">
+        <option th:each="wall : ${walls}" th:value="${wall.wallName}" th:text="${wall.wallName}" />
+    </select>
+    <p>Region: <input type="text" th:field="*{region}"/></p>
+    <p>Rate: <input type="text" th:field="*{rate}"/></p>
+    <label for="firstAscent">First ascent:</label>
+    <select id="firstAscent" th:field="*{firstAscent}">
+        <option th:each="climber : ${climbers}" th:value="${climber.climberLastName}" th:text="${climber.climberFirstName} + ' ' + ${climber.climberLastName}" />
+    </select>
+    <p>Year: <input type="text" th:field="*{year}"/></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
 </body>
 </html>
