@@ -13,7 +13,11 @@
         <option th:each="wall : ${walls}" th:value="${wall.wallName}" th:text="${wall.wallName}" />
     </select>
     <p>Region: <input type="text" th:field="*{region}"/></p>
-    <p>Rate: <input type="text" th:field="*{rate}"/></p>
+    <label for="rate">Rate:</label>
+    <select id="rate" th:field="*{rate}">
+        <option th:each="rate : ${T(pl.marianek.climbingProject.Rate).values()}"
+                th:value="${rate}" th:text="${rate.label}"></option>
+    </select> <p/>
     <label for="firstAscent">First ascent:</label>
     <select id="firstAscent" th:field="*{firstAscent}">
         <option th:each="climber : ${climbers}" th:value="${climber.climberLastName}" th:text="${climber.climberFirstName} + ' ' + ${climber.climberLastName}" />

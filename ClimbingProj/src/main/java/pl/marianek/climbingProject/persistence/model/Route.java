@@ -21,10 +21,6 @@ public class Route {
     @Column(length=50, nullable=false, unique=true)
     private String routeName;
 
-    @Column(name="ROUTE_REGION", length=50, nullable=false)
-    @Length(min = 2, max = 50)
-    private String region;
-
     @ManyToOne(cascade = CascadeType.ALL, targetEntity = Wall.class)
     @JoinColumn(name="wall_id", nullable = false)
     private Wall wall;

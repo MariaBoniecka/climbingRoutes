@@ -45,8 +45,10 @@ public class RouteController {
     @PostMapping(value = "/newRoute")
     public ModelAndView newClimber(@ModelAttribute("newRouteForm") @Valid NewRouteForm routeForm, BindingResult bindingResult) {
 
-        Route climber = new Route();
-        routeService.saveRoute(climber);
+        Route route = new Route();
+        route.setRouteName(routeForm.getRouteName());
+        //route.setRate(routeForm.getRate());
+        routeService.saveRoute(route);
         return new ModelAndView("redirect:/showAllClimbers");
     }
 

@@ -13,11 +13,10 @@ public class Wall {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long wallId;
 
-    @Column(length=50, nullable = false)
-    @Length(min = 2, max = 50)
+    @Column(nullable = false)
     private String wallName;
 
-    @Column(length=2, nullable = false)
-    private String countryCode;
-
+    @ManyToOne(cascade = CascadeType.ALL, targetEntity = Region.class)
+    @JoinColumn(name="region_id", nullable = false)
+    private Region region;
 }

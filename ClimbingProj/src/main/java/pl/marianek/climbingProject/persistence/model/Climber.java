@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Column;
 
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 
 @Getter @Setter
 @Entity
@@ -43,4 +44,11 @@ public class Climber {
                 climberId, climberFirstName, climberLastName, climberCountryCode, dateOfBirth);
     }
 
+    public static boolean isFromPoland(Climber climber) {
+        return climber.getClimberCountryCode().equals("PL");
+    }
+
+    public static boolean isOlderThan50(Climber climber) {
+        return ChronoUnit.YEARS.between(climber.getDateOfBirth(), LocalDateTime.now()) < 50;
+    }
 }

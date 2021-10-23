@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add New Region</title>
+</head>
+<body>
+<h1>Form</h1>
+<form action="#" th:action="@{/newRegion}" th:object="${newRegionForm}" method="post">
+  <p>Name: <input type="text" th:field="*{name}"/></p>
+  <p>Country: <input type="text" th:field="*{country}"/></p>
+  <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

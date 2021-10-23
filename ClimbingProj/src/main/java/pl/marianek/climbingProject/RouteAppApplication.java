@@ -11,6 +11,7 @@ import pl.marianek.climbingProject.persistence.model.Climber;
 import pl.marianek.climbingProject.persistence.repository.ClimberRepository;
 
 import java.sql.SQLException;
+import java.util.stream.Collectors;
 
 
 @SpringBootApplication
@@ -29,9 +30,13 @@ public class RouteAppApplication {
         return (args) -> {
             log.info("Climbers found with findAll():");
             log.info("-------------------------------");
-            for (Climber climber : repository.findAll()) {
-                log.info(climber.toString());
-            }
+            repository.findAll()
+                    .stream()
+                    .filter(Climber::isFromPoland)
+                    .filter(Climber::isOlderThan50)
+                    .map(c -> c.getClimberFirstName() + "_" + c.getClimberLastName())
+                    .collect(Collectors.toList())
+                    .forEach(c -> log.info(c));
             log.info("");
         };
     }

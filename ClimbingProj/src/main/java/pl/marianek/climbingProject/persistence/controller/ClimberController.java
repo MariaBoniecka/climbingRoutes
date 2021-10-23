@@ -21,7 +21,6 @@ import java.util.Date;
 
 @RestController
 public class ClimberController {
-
     @Autowired
     ClimberService climberService;
     @GetMapping(value = "/showClimbers")
